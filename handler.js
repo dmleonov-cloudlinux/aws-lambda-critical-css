@@ -5,21 +5,15 @@ const fetchStyles = require('./src/fetchStyles');
 const getCritical = require('./src/getCritical');
 const minify = require('./src/minify');
 
-exports.handler = async function(event, context) {
-  console.log("ENVIRONMENT VARIABLES\n" + JSON.stringify(process.env, null, 2))
-  console.info("EVENT\n" + JSON.stringify(event, null, 2))
-  console.warn("Event not processed.")
-  return context.logStreamName
-}
+module.exports.processor = async (event) => {
+    const body = JSON.parse(event.body)
+    const url = body.url
+    const key = body.key
+    const styles = body.styles
+    const hash = body.hash
+    const return_url = body.returnURL
+    const secret = body.secret
 
-module.exports.processor = async ({
-    url,
-    key,
-    styles,
-    hash,
-    return_url: returnURL,
-    secret,
-}) => {
     const stylesheets = await fetchStyles(styles);
     const critical = await getCritical(url, stylesheets);
     const minified = minify(critical);
