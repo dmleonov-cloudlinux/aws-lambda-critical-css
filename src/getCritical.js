@@ -10,4 +10,5 @@ module.exports = (url, cssStrings) => penthouse({
     },
     renderWaitTime: 1000,
     blockJSRequests: false,
+    timeout: 100000,
 });
