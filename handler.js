@@ -5,6 +5,13 @@ const fetchStyles = require('./src/fetchStyles');
 const getCritical = require('./src/getCritical');
 const minify = require('./src/minify');
 
+exports.handler = async function(event, context) {
+  console.log("ENVIRONMENT VARIABLES\n" + JSON.stringify(process.env, null, 2))
+  console.info("EVENT\n" + JSON.stringify(event, null, 2))
+  console.warn("Event not processed.")
+  return context.logStreamName
+}
+
 module.exports.processor = async ({
     url,
     key,
