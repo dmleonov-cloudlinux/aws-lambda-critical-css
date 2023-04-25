@@ -11,7 +11,7 @@ module.exports.processor = async (event) => {
     const key = eventBody.key;
     const styles = eventBody.styles;
     const hash = eventBody.hash;
-    const return_url = eventBody.returnURL;
+    const returnURL = eventBody.return_url;
     const secret = eventBody.secret;
 
     const stylesheets = await fetchStyles(styles);
