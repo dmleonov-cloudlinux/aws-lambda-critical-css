@@ -6,13 +6,13 @@ const getCritical = require('./src/getCritical');
 const minify = require('./src/minify');
 
 module.exports.processor = async (event) => {
-    const body = JSON.parse(event.body)
-    const url = body.url
-    const key = body.key
-    const styles = body.styles
-    const hash = body.hash
-    const return_url = body.returnURL
-    const secret = body.secret
+    const body = JSON.parse(event.body);
+    const url = body.url;
+    const key = body.key;
+    const styles = body.styles;
+    const hash = body.hash;
+    const return_url = body.returnURL;
+    const secret = body.secret;
 
     const stylesheets = await fetchStyles(styles);
     const critical = await getCritical(url, stylesheets);
