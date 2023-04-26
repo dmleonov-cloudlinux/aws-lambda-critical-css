@@ -6,6 +6,10 @@ const getCritical = require('./src/getCritical');
 const minify = require('./src/minify');
 
 module.exports.processor = async (event) => {
+    if (process.env.X_API_KEY !== event.headers.x-api-key) {
+        throw new Error("Unauthorized access");
+    }
+    
     const eventBody = JSON.parse(event.body);
     const url = eventBody.url;
     const key = eventBody.key;
