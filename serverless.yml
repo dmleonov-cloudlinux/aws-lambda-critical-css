@@ -1,10 +1,10 @@
-service: critical-css
+service: critical-css-test
 
 frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   lambdaHashingVersion: 20201221
 
 package:
