@@ -1,4 +1,4 @@
-service: critical-css-test
+service: critical-css
 
 frameworkVersion: '2'
 
