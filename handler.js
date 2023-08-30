@@ -13,7 +13,7 @@ module.exports.processor = async (event) => {
     const ipAddress = event.requestContext.http.sourceIp;
     const ipList = process.env.IP_WHITE_LIST.split(",");
     if (!ipList.includes(ipAddress)) {
-        throw new Error("Unauthorized access");
+        throw new Error("Unauthorized access: " + ipAddress);
     }
 
     const eventBody = JSON.parse(event.body);
