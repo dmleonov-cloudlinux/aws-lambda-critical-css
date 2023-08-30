@@ -16,7 +16,7 @@ package:
 functions:
   processor:
     handler: handler.processor
-    timeout: 59
+    timeout: 600
     memorySize: 2048
     maximumEventAge: 600
     maximumRetryAttempts: 0
